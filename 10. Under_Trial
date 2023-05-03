@@ -1,0 +1,56 @@
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.length();
+        int n = p.length();
+        int a = 0, b = 0;
+
+        while(b<n)
+        {
+            if(a>=m)
+            {
+                return true;
+            }
+            if(p[b] == s[a] || p[b]=='.')
+            {
+                a++;
+                b++;
+            }
+
+            else if(p[b] == '*')
+            {
+                if(b+1>n)
+                {
+                    return true;
+                }
+                char temp = p[b];
+                while(s[a] != temp && a<=m && b<=n)
+                {
+                    a++;
+                }
+                if(s[a] == temp)
+                {
+                    a++;
+                    b++;
+                }
+            }
+            else
+            {
+                if(p[b+1]=='*')
+                {
+                    b++;
+                    b++;
+                    continue;
+                }
+                return false;
+            }
+
+            if(b==n && p[b-1] == '*')
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+};
