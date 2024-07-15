@@ -1,0 +1,88 @@
+import React from 'react';
+
+const SolutionArchitecture = () => {
+  return (
+    <div className="p-10 bg-white">
+      <div className="text-center text-2xl font-bold mb-6">Solution Architecture</div>
+      <div className="relative mx-auto max-w-4xl">
+        <div className="flex flex-col items-center space-y-6">
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">account_circle</span>
+              </div>
+              <div className="text-sm">Fiat Money (Deposit)</div>
+            </div>
+            <div className="flex-1 border-t-2 border-gray-500"></div>
+            <div className="text-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">code</span>
+              </div>
+              <div className="text-sm">ALGORITHM</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="text-sm">(-) Fiat Deposit Fee</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">account_balance_wallet</span>
+              </div>
+              <div className="text-sm">Exchange 1</div>
+            </div>
+            <div className="flex-1 border-t-2 border-gray-500"></div>
+            <div className="text-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">attach_money</span>
+              </div>
+              <div className="text-sm">Crypto Currency</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="text-sm">(-) Trading Fee Buy</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">attach_money</span>
+              </div>
+              <div className="text-sm">Exchange 2</div>
+            </div>
+            <div className="flex-1 border-t-2 border-gray-500"></div>
+            <div className="text-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">account_balance_wallet</span>
+              </div>
+              <div className="text-sm">Crypto Currency</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="text-sm">(-) Withdrawal Fee</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="bg-gray-300 w-12 h-12 flex items-center justify-center rounded-full mb-2">
+                <span className="material-icons">attach_money</span>
+              </div>
+              <div className="text-sm">Fiat Money (Deposit + Profit)</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="text-sm">30% Tax on Capital Gain</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SolutionArchitecture;
