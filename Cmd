@@ -1,11 +1,12 @@
 TimeToClose_Hours = 
-VAR TimeText = TRIM(Sheet1[Time_To_Close])
-VAR IsBlank = ISBLANK(TimeText)
-VAR HasH = FIND("h", TimeText, 1, 0) > 0
-VAR HasM = FIND("m", TimeText, 1, 0) > 0
-VAR IsValid = NOT(IsBlank) && HasH && HasM
-VAR PosH = FIND("h", TimeText)
-VAR PosM = FIND("m", TimeText)
-VAR Hours = VALUE(LEFT(TimeText, PosH - 1))
-VAR Minutes = VALUE(TRIM(MID(TimeText, PosH + 1, PosM - PosH - 1)))
-RETURN IF(IsValid, ROUND(Hours + (Minutes / 60), 2), BLANK())
+VAR timeText = TRIM(Sheet1[Time_To_Close])
+RETURN 
+IF(
+    ISBLANK(timeText) || NOT CONTAINSSTRING(timeText, "h") || NOT CONTAINSSTRING(timeText, "m"),
+    BLANK(),
+    ROUND(
+        VALUE(LEFT(timeText, FIND("h", timeText) - 1)) +
+        VALUE(TRIM(SUBSTITUTE(MID(timeText, FIND("h", timeText) + 1, LEN(timeText)), "m", ""))) / 60,
+        2
+    )
+)
