@@ -1,7 +1,8 @@
 TimeToClose_Hours = 
 VAR TimeText = TRIM(Sheet1[Time_To_Close])
-VAR PosH = FIND("h", TimeText, 1, -1)
-VAR PosM = FIND("m", TimeText, 1, -1)
-VAR Hours = VALUE(LEFT(TimeText, PosH - 1))
-VAR Minutes = VALUE(TRIM(MID(TimeText, PosH + 1, PosM - PosH - 1)))
-RETURN ROUND(Hours + (Minutes / 60), 2)
+VAR IsValid = NOT(ISBLANK(TimeText)) && ISNUMBER(FIND("h", TimeText))
+VAR PosH = IF(IsValid, FIND("h", TimeText), -1)
+VAR PosM = IF(IsValid, FIND("m", TimeText), -1)
+VAR Hours = IF(IsValid, VALUE(LEFT(TimeText, PosH - 1)), BLANK())
+VAR Minutes = IF(IsValid, VALUE(TRIM(MID(TimeText, PosH + 1, PosM - PosH - 1))), BLANK())
+RETURN IF(IsValid, ROUND(Hours + (Minutes / 60), 2), BLANK())
