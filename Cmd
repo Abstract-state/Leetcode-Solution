@@ -1,5 +1,5 @@
-Avg Time to Close (hrs) = 
-AVERAGEX(
-    FILTER(Sheet1, NOT(ISBLANK(Sheet1[TimeToClose_Hours]))),
-    Sheet1[TimeToClose_Hours]
+Escalation Rate (%) = 
+DIVIDE(
+    CALCULATE(COUNTROWS(Sheet1), Sheet1[Alert_Status] = "Escalated"),
+    COUNTROWS(Sheet1)
 )
